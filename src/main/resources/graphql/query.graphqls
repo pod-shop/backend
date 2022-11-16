@@ -1,0 +1,13 @@
+type Query {
+    products: [Product!]!
+    product(id: ID!): Product
+    #    productMedias: [ProductMedia]
+    medias: [Media!]
+    reviews: [ProductReview!]!
+    productReviews(productId: ID!): [ProductReview!]
+    categories: [Category!]!
+    category(id: ID!): Category
+    orders: [Order!]!
+    order(id: ID!): Order
+    statistic: Statistic
+}

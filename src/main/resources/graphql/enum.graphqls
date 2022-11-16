@@ -1,0 +1,14 @@
+enum Perspective {
+    FRONT
+    BACK
+    LEFT
+    RIGHT
+}
+
+enum OrderStatus {
+    AWAITING_PAYMENT,
+    CONFIRMED,
+    SHIPPED,
+    DELIVERED,
+    CANCELLED
+}

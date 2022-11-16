@@ -1,0 +1,117 @@
+type Product {
+    id: Int!
+    price: NonNegativeFloat!
+    name: String!
+    description: String!
+    enabled: Boolean!
+    category: Category!
+    tags: [Tag!]
+    views: [View!]
+    appearances: [Appearance!]
+    #    medias: [ProductMedia]
+    #    reviews: [ProductReview] # fetch reviews in another query
+}
+
+type Category {
+    id: Int!
+    name: String!
+    parent: Category
+}
+
+type Tag {
+    id: Int!
+    name: String!
+}
+
+type ProductReview {
+    id: Int!
+    comment: String!
+    rating: PositiveInt!
+    user: User!
+    product: Product!
+    appearance: Appearance
+    createdAt: DateTime!
+}
+
+type Media {
+    id: Int!
+    url: Url!    # Url
+    name: String!
+    originalFilename: String
+    contentType: String
+    user: User
+}
+
+#type ProductMedia {
+#    id: Int
+#    product: Product
+#    media: Media
+#    appearance: Appearance
+#    view: View
+#}
+
+type Color {
+    id: Int!
+    name: String!
+    color: String!
+}
+
+type Appearance {
+    id: Int!
+    name: String
+    texture: Boolean
+    colors: [Color!]
+}
+
+type View {
+    id: Int!
+    name: String
+    perspective: Perspective
+}
+
+type User {
+    id: UUID!
+    name: String!
+    email: Email!
+    username: Email!
+    #    password: String
+    enabled: Boolean!
+}
+
+input OrderInput {
+    notes: String
+    #    status: OrderStatus!
+    #    user: User!
+    #    items: [OrderItem]
+    #    createdAt: DateTime
+}
+
+type Order {
+    id: Int!
+    notes: String
+    status: OrderStatus!
+    user: User!
+    items: [OrderItem!]!
+    createdAt: DateTime
+}
+
+type OrderItem {
+    id: Int!
+    price: NonNegativeFloat!
+    quantity: NonNegativeInt!
+    #    order: Order
+    product: Product!
+}
+
+type Statistic {
+    productsCount: NonNegativeInt
+    ordersCount: NonNegativeInt
+    totalEarnings: Float
+    sales: [MonthlyStatistics]
+    visitors: [MonthlyStatistics]
+}
+
+type MonthlyStatistics {
+    month: String
+    count: Float
+}

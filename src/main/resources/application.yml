@@ -1,0 +1,28 @@
+spring:
+  port: 8081
+#    jpa:
+#      properties:
+#        hibernate:
+#          enable_lazy_load_no_trans: true
+
+javax:
+  persistence:
+    jdbc:
+      url: jdbc:postgresql://localhost:5432/crealo
+      user: postgres
+      password: 123456789
+    schema-generation:
+      database:
+        action: drop-and-create
+
+logging:
+  level:
+    root: INFO
+    web: DEBUG
+    org:
+      hibernate:
+        sql: DEBUG
+    com:
+      example:
+        demo: DEBUG
+

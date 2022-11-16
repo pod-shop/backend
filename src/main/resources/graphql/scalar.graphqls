@@ -1,0 +1,21 @@
+# Extended Scalars
+scalar UUID
+scalar JSON
+scalar Date
+scalar Time
+scalar LocalTime
+scalar DateTime
+scalar Url
+scalar PositiveInt
+scalar NonNegativeInt
+scalar PositiveFloat
+scalar NonNegativeFloat
+scalar Locale
+scalar Object
+
+# Regex Scalars
+scalar Email
+
+# Aliased Scalars
+scalar Short    # GraphQLShort
+scalar Byte     # GraphQLByte

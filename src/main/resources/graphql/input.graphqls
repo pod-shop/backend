@@ -1,0 +1,43 @@
+input ObjectId {
+    id: ID!
+}
+
+input ProductInput {
+    price: NonNegativeFloat!
+    name: String!
+    description: String!
+    enabled: Boolean!
+    category: ObjectId!
+    tags: [ObjectId]
+    views: [ObjectId]
+    appearances: [ObjectId]
+}
+
+input ProductReviewInput {
+    comment: String!
+    rating: PositiveInt!
+    #    user: UserInput
+    #    user: ObjectId!
+    appearance: ObjectId
+}
+
+input AppearanceInput {
+    #    id: Int!
+    name: String
+    texture: Boolean
+    colors: [ObjectId]
+}
+
+input UserInput {
+    #    id: UUID
+    name: String
+    email: Email
+    username: Email
+    #    password: String
+    enabled: Boolean
+}
+
+input CategoryInput {
+    name: String!
+    parent: ObjectId
+}

@@ -17,8 +17,9 @@ spec:
           image: 893194976256.dkr.ecr.us-east-2.amazonaws.com/docker-repo
           imagePullPolicy: Always
           ports:
-            - containerPort: 8085
-# service type loadbalancer
+            - containerPort: 8081
+            - containerPort: 8443
+# service type load balancer
 ---
 apiVersion: v1
 kind: Service
@@ -32,7 +33,11 @@ spec:
     - name: http
       port: 80
       protocol: TCP
-      targetPort: 8085
+      targetPort: 8081
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8443
   type: LoadBalancer
   selector:
     app: crealo
